@@ -25,7 +25,8 @@ import {
 
 export function NavBar() {
   return (
-    <div className="flex flex-col justify-between gap-y-72">
+    <div className="flex flex-col justify-between ">
+      <p className="font-bold lowercase px-3 text-2xl">Maburo.</p>
       <div className="my-7">
         <Menubar>
           <MenubarMenu>

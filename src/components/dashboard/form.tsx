@@ -1,0 +1,153 @@
+"use client";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { DatePicker } from "./datepicker";
+import SelectField from "./selectField";
+import BannerDashboard from "@/assets/images/banner_dashboard.png";
+const formSchema = z.object({
+  from: z.string().min(2).max(50),
+  to: z.string().min(2).max(50),
+  date: z.date(),
+  passenger: z.string().min(1).max(50),
+  quantity: z.number().min(1).max(50),
+});
+
+function DashboardForm() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+  });
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    console.log(data);
+  };
+  return (
+    <Form {...form}>
+      <div className="flex gap-2 bg-white ">
+        <p className="">
+          <h4>Where would you want to go ?</h4>
+          <h1 className="text-3xl font-semibold">Book a Flight</h1>
+          <img src={BannerDashboard} alt="flight" />
+        </p>
+
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+          <FormField
+            control={form.control}
+            name="from"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>From</FormLabel>
+                <FormControl>
+                  <SelectField
+                    placeholder="Select a origin"
+                    values={[
+                      "Warsaw Chopin Airport",
+                      "New Yogyyakarta Airport",
+                      "London Heathrow Airport",
+                      "Paris Charles de Gaulle Airport",
+                      "Frankfurt Airport",
+                      "Amsterdam Airport Schiphol",
+                      "Madrid Barajas Airport",
+                    ]}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="to"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>To</FormLabel>
+                <FormControl>
+                  <SelectField
+                    placeholder="Select a destination"
+                    values={[
+                      "Warsaw Chopin Airport",
+                      "New Yogyyakarta Airport",
+                      "London Heathrow Airport",
+                      "Paris Charles de Gaulle Airport",
+                      "Frankfurt Airport",
+                      "Amsterdam Airport Schiphol",
+                      "Madrid Barajas Airport",
+                    ]}
+                    {...field}
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className="flex justify-between">
+            <FormField
+              control={form.control}
+              name="date"
+              render={({ field }) => (
+                <FormItem className="flex flex-col gap-2">
+                  <FormLabel>Date</FormLabel>
+                  <FormControl>
+                    <DatePicker {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="from"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Passenger</FormLabel>
+                  <FormControl>
+                    <SelectField
+                      placeholder={"Sex"}
+                      values={["Male", "Female", "Other"]}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="quantity"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Quantity</FormLabel>
+                  <FormControl>
+                    <SelectField
+                      placeholder={"Sex"}
+                      values={["1", "2", "3", "4", "5", "6", "7"]}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <Button className="w-full" type="submit">
+            Search
+          </Button>
+        </form>
+      </div>
+    </Form>
+  );
+}
+
+export default DashboardForm;

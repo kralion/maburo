@@ -1,10 +1,21 @@
-import { NavBar } from "@/components/navbar";
+import Filter from "@/components/dashboard/filter";
+import DashboardForm from "@/components/dashboard/form";
+import { Header } from "@/components/dashboard/header";
 
 function Dashboard() {
   return (
     <div>
-      <p className="font-bold lowercase px-3 text-2xl">Maburo.</p>
-      <NavBar />
+      <Header />
+      <div className="grid grid-flow-row grid-cols-2 gap-7">
+        <div>
+          <DashboardForm />
+        </div>
+        <div className="row-span-3">
+          <Filter />
+        </div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 }
