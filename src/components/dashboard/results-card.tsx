@@ -15,7 +15,7 @@ function ResultsCard({
   logo,
 }: ResultsCardProps) {
   return (
-    <div className="rounded-xl w-fit  bg-white p-5 space-y-7 font-semibold">
+    <div className="rounded-xl w-fit hover:scale-105 duration-200 cursor-pointer hover:shadow-lg  bg-white p-5 space-y-7 font-semibold">
       <div className="flex justify-between items-center">
         <p className="flex gap-1 text-sm text-blue-500">
           <h4>4:20 PM</h4>-

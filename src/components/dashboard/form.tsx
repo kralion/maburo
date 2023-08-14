@@ -12,9 +12,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import Flight from "@/assets/images/banner_dashboard.png";
 import { DatePicker } from "./datepicker";
 import SelectField from "./selectField";
-import Flight from "@/assets/images/flight.jpg";
 const formSchema = z.object({
   from: z.string().min(2).max(50),
   to: z.string().min(2).max(50),
@@ -32,13 +32,13 @@ function DashboardForm() {
   };
   return (
     <Form {...form}>
-      <div className="flex p-5 rounded-2xl w-fit gap-5 bg-white ">
+      <div className="flex p-5 rounded-2xl items-center w-fit gap-5 bg-white ">
         <div className="space-y-2">
           <h4 className="font-semibold text-sm">
             Where would you want to go ?
           </h4>
           <h1 className="text-4xl font-semibold">Book a Flight</h1>
-          <img src={Flight} className="rounded" alt="flight" width={360} />
+          <img src={Flight} className="rounded-xl" alt="flight" width={350} />
         </div>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
