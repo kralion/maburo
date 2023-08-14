@@ -1,10 +1,12 @@
 import { ChevronDown, LucideFilter } from "lucide-react";
 import TravelPlane from "../../assets/icons/travel-plane.png";
 import ResultsCard from "./results-card";
+import QantasLogo from "../../assets/logos/qantas.png";
+import ArabiaAIRLogo from "../../assets/logos/cathay-pacific.png";
 
 function Results() {
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 px-3">
       <div className="flex justify-between items-center">
         <h3 className="font-semibold hover:text-slate-700 cursor-pointer ">
           Results
@@ -18,7 +20,7 @@ function Results() {
             </span>
           </h3>
           <ChevronDown className="w-4 h-4 hover:text-slate-700 cursor-pointer" />
-          <LucideFilter className="w-4 h-4 text-blue-500 hover:text-slate-700 cursor-pointer" />
+          <LucideFilter className="w-5 h-5 text-blue-500 hover:text-slate-700 cursor-pointer" />
         </div>
       </div>
       <div className="flex justify-between items-center">
@@ -51,9 +53,21 @@ function Results() {
           <span className="text-slate-600">Yogyakarta</span>
         </p>
       </div>
-      <section className="flex gap-3">
-        <ResultsCard />
-        <ResultsCard />
+      <section className="flex gap-5">
+        <ResultsCard
+          name="Qantas"
+          logo={QantasLogo}
+          services={["AMS", "CGK", "SIN"]}
+          price={485}
+          flightModels={["SN 0861584", "Fart WULAD", "DOR 007"]}
+        />
+        <ResultsCard
+          name="Arabia AIR"
+          logo={ArabiaAIRLogo}
+          services={["AMS", "CGK", "SIN"]}
+          price={570}
+          flightModels={["Boeing 737", "Boeing 747", "JK-AAB"]}
+        />
       </section>
     </div>
   );

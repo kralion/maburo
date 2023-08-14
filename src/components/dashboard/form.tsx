@@ -38,16 +38,16 @@ function DashboardForm() {
             Where would you want to go ?
           </h4>
           <h1 className="text-4xl font-semibold">Book a Flight</h1>
-          <img src={Flight} alt="flight" width={250} />
+          <img src={Flight} className="rounded" alt="flight" width={360} />
         </div>
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <FormField
             control={form.control}
             name="from"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>From</FormLabel>
+                <FormLabel className="font-semibold">From</FormLabel>
                 <FormControl>
                   <SelectField
                     placeholder="Select a origin"
@@ -72,7 +72,7 @@ function DashboardForm() {
             name="to"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>To</FormLabel>
+                <FormLabel className="font-semibold">To</FormLabel>
                 <FormControl>
                   <SelectField
                     placeholder="Select a destination"
@@ -93,13 +93,13 @@ function DashboardForm() {
               </FormItem>
             )}
           />
-          <div className="flex justify-between">
+          <div className="flex gap-5">
             <FormField
               control={form.control}
               name="date"
               render={({ field }) => (
                 <FormItem className="flex flex-col gap-2">
-                  <FormLabel>Date</FormLabel>
+                  <FormLabel className="font-semibold">Date</FormLabel>
                   <FormControl>
                     <DatePicker {...field} />
                   </FormControl>
@@ -113,10 +113,10 @@ function DashboardForm() {
               name="from"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Passenger</FormLabel>
+                  <FormLabel className="font-semibold">Passenger</FormLabel>
                   <FormControl>
                     <SelectField
-                      placeholder={"Sex"}
+                      placeholder={"Gender"}
                       values={["Male", "Female", "Other"]}
                       {...field}
                     />
@@ -130,10 +130,10 @@ function DashboardForm() {
               name="quantity"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Quantity</FormLabel>
+                  <FormLabel className="font-semibold">Quantity</FormLabel>
                   <FormControl>
                     <SelectField
-                      placeholder={"Sex"}
+                      placeholder={"Qty."}
                       values={["1", "2", "3", "4", "5", "6", "7"]}
                       {...field}
                     />

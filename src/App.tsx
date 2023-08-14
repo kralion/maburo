@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="font-Montserrat">
       <div className="flex ">
-        <aside className=" px-2">
+        <aside className="px-2">
           <div className="sticky  top-7 w-full">
             <NavBar />
           </div>
