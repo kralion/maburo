@@ -1,6 +1,6 @@
 # Maburo Airline
 
-![cover](/public/repo-cover.png)
+![cover](https://cdn.dribbble.com/userupload/8470119/file/original-112f0083d7ccaddc18b88a48ce59ef63.png?resize=2048x1536)
 
 Maburo is a production-ready project, showcasing the UI for an airline company. It's built using Vite, Typescript, and Tailwind CSS, with a modern design using Shadcn UI.
 
