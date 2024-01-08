@@ -1,7 +1,10 @@
-import { CheckSquare, LucideX } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { LucideX } from "lucide-react";
 import { Button } from "../ui/button";
 import { Slider } from "../ui/slider";
 import { RadioGroupDashboard } from "./radio";
+import { useToast } from "../ui/use-toast";
+import { ToastAction } from "../ui/toast";
 
 const CabinClass = ["All", "Economy", "Business", "First Class"];
 const Departure = [
@@ -9,8 +12,8 @@ const Departure = [
   "2:00 PM - 3:00 PM",
   "3:00 PM - 4:00 PM",
 ];
-
 function Filter() {
+  const { toast } = useToast();
   return (
     <div className=" bg-white rounded-2xl w-fit p-5 space-y-10 ">
       <div className="flex justify-between items-baseline">
@@ -66,18 +69,31 @@ function Filter() {
         </div>
       </div>
       <div className="space-y-5">
-        <p className="flex justify-between font-semibold">
-          <span>Airline</span>
-          <span>Select All</span>
-        </p>
-        <div>
-          <RadioGroupDashboard />
-        </div>
+        <RadioGroupDashboard />
       </div>
-      <p className="text-sm flex items-center">
-        <CheckSquare className="inline-block w-4 h-4 mr-2 text-green-700 bg-green-200" />
-        <strong>Flexible </strong> tickets that are free for
-        <strong> reschedule.</strong>
+      <p className="text-sm flex gap-2 items-start">
+        <Checkbox
+          onClick={() => {
+            toast({
+              title: "Could take long",
+              description: "This action could take a while to complete",
+              action: <ToastAction altText="Try again">Got it</ToastAction>,
+            });
+          }}
+          color="#059669"
+        />
+
+        <div className="grid gap-1.5 leading-none">
+          <label
+            htmlFor="refundable"
+            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          >
+            Refundable Only
+          </label>
+          <p className="text-sm text-slate-500">
+            Terms are applied to the selected flight.
+          </p>
+        </div>
       </p>
       <Button className="w-full" type="submit">
         Apply Filter

@@ -55,19 +55,11 @@ const SelectTriggerVariants = cva({
   },
 });
 
-export default function SelectField({
-  placeholder,
-  values,
-  variant,
-  size,
-  className,
-}: SelectFormProps) {
+export default function SelectField({ values, className }: SelectFormProps) {
   return (
     <Select>
-      <SelectTrigger
-        className={cn(SelectTriggerVariants({ variant, size, className }))}
-      >
-        <SelectValue placeholder={placeholder} />
+      <SelectTrigger className={cn(SelectTriggerVariants({ className }))}>
+        <SelectValue />
       </SelectTrigger>
       <SelectContent>
         {values.map((value) => (

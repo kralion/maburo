@@ -1,6 +1,5 @@
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
@@ -25,29 +24,26 @@ import {
 
 export function NavBar() {
   return (
-    <div className="flex flex-col justify-between mx-2 ">
-      <p className="font-bold lowercase px-3 text-2xl">Maburo.</p>
-      <div className="my-7">
+    <div className="flex flex-col gap-96 justify-between ">
+      <div>
+        <p className="font-bold lowercase my-10 px-3 text-2xl">Maburo.</p>
         <Menubar>
           <MenubarMenu>
-            <MenubarTrigger>
-              <LucideHome className="h-5 w-5 text-blue-500 group-hover:text-green-500 " />
+            <MenubarTrigger className="hover:bg-blue-500 group text-slate-500 hover:text-white">
+              <LucideHome className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
               Home
             </MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
-                New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+                Recent Tickets <MenubarShortcut>⌘T</MenubarShortcut>
               </MenubarItem>
-              <MenubarItem>
-                New Window <MenubarShortcut>⌘N</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem disabled>New Incognito Window</MenubarItem>
+              <MenubarItem disabled></MenubarItem>
               <MenubarSeparator />
               <MenubarSub>
-                <MenubarSubTrigger>Share</MenubarSubTrigger>
+                <MenubarSubTrigger>Actions</MenubarSubTrigger>
                 <MenubarSubContent>
-                  <MenubarItem>Email link</MenubarItem>
-                  <MenubarItem>Messages</MenubarItem>
+                  <MenubarItem>Notifications</MenubarItem>
+                  <MenubarItem>Go to Dashboard</MenubarItem>
                   <MenubarItem>Notes</MenubarItem>
                 </MenubarSubContent>
               </MenubarSub>
@@ -58,99 +54,76 @@ export function NavBar() {
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>
-              <LucideTicket className="h-5 w-5 text-blue-500 group-hover:text-green-500 " />
+            <MenubarTrigger className="hover:bg-blue-500 group text-slate-500 hover:text-white">
+              <LucideTicket className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400  " />
               Ticket
             </MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
-                Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+                New Ticket <MenubarShortcut>⌘N</MenubarShortcut>
               </MenubarItem>
               <MenubarItem>
-                Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+                New Book <MenubarShortcut>⇧⌘B</MenubarShortcut>
               </MenubarItem>
               <MenubarSeparator />
               <MenubarSub>
                 <MenubarSubTrigger>Find</MenubarSubTrigger>
                 <MenubarSubContent>
-                  <MenubarItem>Search the web</MenubarItem>
-                  <MenubarSeparator />
-                  <MenubarItem>Find...</MenubarItem>
+                  <MenubarItem>Find Ticket</MenubarItem>
                   <MenubarItem>Find Next</MenubarItem>
                   <MenubarItem>Find Previous</MenubarItem>
                 </MenubarSubContent>
               </MenubarSub>
-              <MenubarSeparator />
-              <MenubarItem>Cut</MenubarItem>
-              <MenubarItem>Copy</MenubarItem>
-              <MenubarItem>Paste</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>
-              <LucideCalendar className="h-5 w-5 text-blue-500 group-hover:text-green-500 " />
+            <MenubarTrigger className="hover:bg-blue-500 group text-slate-500 hover:text-white">
+              <LucideCalendar className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
               Schedule
             </MenubarTrigger>
             <MenubarContent>
-              <MenubarCheckboxItem>
-                Always Show Bookmarks Bar
-              </MenubarCheckboxItem>
-              <MenubarCheckboxItem checked>
-                Always Show Full URLs
-              </MenubarCheckboxItem>
-              <MenubarSeparator />
-              <MenubarItem inset>
-                Reload <MenubarShortcut>⌘R</MenubarShortcut>
-              </MenubarItem>
-              <MenubarItem disabled inset>
-                Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-              </MenubarItem>
-              <MenubarSeparator />
               <MenubarItem inset>Toggle Fullscreen</MenubarItem>
               <MenubarSeparator />
               <MenubarItem inset>Hide Sidebar</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger>
-              <LucideHistory className="h-5 w-5 text-blue-500 group-hover:text-green-500 " />
+            <MenubarTrigger className="hover:bg-blue-500 group text-slate-500 hover:text-white">
+              <LucideHistory className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400  " />
               History
             </MenubarTrigger>
             <MenubarContent>
               <MenubarRadioGroup value="benoit">
-                <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-                <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-                <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+                <MenubarRadioItem value="andy">Daily</MenubarRadioItem>
+                <MenubarRadioItem value="benoit">Monthly</MenubarRadioItem>
+                <MenubarRadioItem value="Luis">Anually</MenubarRadioItem>
               </MenubarRadioGroup>
               <MenubarSeparator />
-              <MenubarItem inset>Edit...</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem inset>Add Profile...</MenubarItem>
+              <MenubarItem inset>
+                Clear <MenubarShortcut>⇧⌘C</MenubarShortcut>
+              </MenubarItem>
             </MenubarContent>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger className="cursor-pointer ">
-              <LucideMessageSquare className="h-5 w-5 text-blue-500 group-hover:text-green-500 " />
+            <MenubarTrigger className="hover:bg-blue-500 group text-slate-500 hover:text-white">
+              <LucideMessageSquare className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400  " />
               Support
             </MenubarTrigger>
             <MenubarContent>
               <MenubarRadioGroup value="benoit">
-                <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-                <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-                <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+                <MenubarRadioItem value="andy">Call Center</MenubarRadioItem>
+                <MenubarRadioItem value="benoit">Message</MenubarRadioItem>
+                <MenubarRadioItem value="Luis">Email</MenubarRadioItem>
               </MenubarRadioGroup>
-              <MenubarSeparator />
-              <MenubarItem inset>Edit...</MenubarItem>
-              <MenubarSeparator />
-              <MenubarItem inset>Add Profile...</MenubarItem>
             </MenubarContent>
           </MenubarMenu>
         </Menubar>
       </div>
+
       <Menubar>
         <MenubarMenu>
-          <MenubarTrigger>
-            <LucideSettings className="h-5 w-5 text-blue-500 group-hover:text-green-500 " />
+          <MenubarTrigger className="hover:bg-blue-500 group text-slate-500 hover:text-white">
+            <LucideSettings className="h-5 w-5  text-blue-500 group-hover:fill-green-400 group-hover:text-green-400" />
             Settings
           </MenubarTrigger>
         </MenubarMenu>

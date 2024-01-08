@@ -1,5 +1,6 @@
 import { NavBar } from "./components/navbar";
 import Dashboard from "./pages/dashboard";
+import { Toaster } from "@/components/ui/toaster";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </div>
 
       <footer className="mt-auto"></footer>
+      <Toaster />
     </div>
   );
 }

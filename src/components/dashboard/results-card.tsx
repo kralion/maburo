@@ -1,4 +1,12 @@
 import { LucideMoreHorizontal } from "lucide-react";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarMenu,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarTrigger,
+} from "../ui/menubar";
 type ResultsCardProps = {
   name: string;
   services: string[];
@@ -15,7 +23,7 @@ function ResultsCard({
   logo,
 }: ResultsCardProps) {
   return (
-    <div className="rounded-xl w-fit hover:scale-105 duration-200 cursor-pointer hover:shadow-lg  bg-white p-5 space-y-7 font-semibold">
+    <div className="rounded-xl hover:scale-105 duration-200 cursor-pointer hover:shadow-lg  bg-white p-5 space-y-7 font-semibold">
       <div className="flex justify-between items-center">
         <p className="flex gap-1 text-sm text-blue-500">
           <h4>4:20 PM</h4>-
@@ -24,7 +32,22 @@ function ResultsCard({
             <h5 className="text-[9px]">+2</h5>
           </span>
         </p>
-        <LucideMoreHorizontal className="w-5 h-5" />
+        <Menubar className="w-fit">
+          <MenubarMenu>
+            <MenubarTrigger className="w-fit">
+              <LucideMoreHorizontal className="w-5 h-5" />
+            </MenubarTrigger>
+            <MenubarContent>
+              <MenubarRadioGroup value="benoit">
+                <MenubarRadioItem value="andy">Save</MenubarRadioItem>
+                <MenubarRadioItem value="benoit">Contact</MenubarRadioItem>
+                <MenubarRadioItem value="Luis">
+                  Register Ticket
+                </MenubarRadioItem>
+              </MenubarRadioGroup>
+            </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
       </div>
       <div className="flex justify-between items-center">
         <p className="flex gap-2 text-blue-500">
