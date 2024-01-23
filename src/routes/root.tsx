@@ -1,8 +1,8 @@
-import { NavBar } from "./components/navbar";
-import Dashboard from "./pages/dashboard";
+import { NavBar } from "@/components/navbar";
+import { Outlet } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 
-function App() {
+export default function Root() {
   return (
     <div className="font-Montserrat">
       <div className="flex ">
@@ -11,8 +11,11 @@ function App() {
             <NavBar />
           </div>
         </aside>
-        <main role="main" className="w-full bg-slate-100  p-5 rounded-2xl">
-          <Dashboard />
+        <main
+          role="main"
+          className="w-full min-h-screen flex gap-4 justify-center items-center bg-slate-200/50  p-8 rounded-3xl"
+        >
+          <Outlet />
         </main>
       </div>
 
@@ -21,5 +24,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

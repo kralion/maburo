@@ -5,10 +5,10 @@ import Results from "@/components/dashboard/results";
 
 function Dashboard() {
   return (
-    <div className="space-y-7">
+    <div className="space-y-8">
       <Header />
-      <div className="flex justify-between">
-        <div className="space-y-7">
+      <div className="flex gap-6">
+        <div className="space-y-4">
           <DashboardForm />
           <Results />
         </div>

@@ -21,9 +21,12 @@ function Filter() {
         <h3 className="font-semibold hover:text-slate-700 cursor-pointer ">
           Filter
         </h3>
-        <h4 className="font-semibold text-sm hover:text-slate-700 cursor-pointer">
+        <Button
+          variant="ghost"
+          className="font-semibold text-sm hover:bg-red-100/50 text-red-700 hover:text-red-700 cursor-pointer"
+        >
           Reset
-        </h4>
+        </Button>
       </div>
       <div className="space-y-5">
         <h4 className="font-semibold text-sm">Cabin Class</h4>

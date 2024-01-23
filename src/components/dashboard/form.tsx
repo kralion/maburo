@@ -36,7 +36,7 @@ function DashboardForm() {
   const { toast } = useToast();
   return (
     <Form {...form}>
-      <div className="flex p-5 rounded-2xl items-center gap-5 bg-white ">
+      <div className="flex p-5 rounded-2xl items-center justify-between  bg-white ">
         <div className="space-y-2">
           <h4 className="font-semibold text-sm">
             Where would you want to go ?
