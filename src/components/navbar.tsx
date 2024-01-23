@@ -8,6 +8,10 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import { CustomNavLink } from "./navLink";
+import { useMatch, useResolvedPath } from "react-router-dom";
+import clsx from "clsx";
+
 const navLinks = [
   {
     title: "Home",
@@ -37,33 +41,40 @@ const navLinks = [
 ];
 
 export function NavBar() {
+  const resolved = useResolvedPath("/settings");
   return (
     <div className="flex flex-col gap-[450px] w-44 justify-between ">
       <div>
         <p className="font-bold lowercase my-10 px-3 text-2xl">Maburo.</p>
 
         {navLinks.map((link) => (
-          <Link to={link.href}>
-            <Button
-              variant="ghost"
-              className="hover:bg-blue-500 flex my-2 justify-start gap-3 active:opacity-70 group w-full text-slate-500 hover:text-white"
-            >
-              {
-                <link.icon className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
-              }
-              {link.title}
-            </Button>
-          </Link>
+          <CustomNavLink to={link.href}>
+            <link.icon className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
+
+            {link.title}
+          </CustomNavLink>
         ))}
       </div>
 
       <Link to="/settings">
         <Button
           variant="ghost"
-          className="hover:bg-blue-500 flex  justify-start gap-3 active:opacity-70 group w-full text-slate-500 hover:text-white"
+          className={clsx(
+            "hover:bg-blue-500 flex my-2 justify-start gap-3 active:opacity-70 group w-full text-slate-500 hover:text-white",
+            useMatch(resolved.pathname)
+              ? " text-white group-default:fill-green-500 group-default:text-green-500 bg-blue-500"
+              : "bg-transparent"
+          )}
         >
           {
-            <LucideSettings className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
+            <LucideSettings
+              className={clsx(
+                "hover:bg-blue-500 active:opacity-70 text-slate-500 hover:text-white",
+                useMatch(resolved.pathname)
+                  ? "    text-green-400 "
+                  : "bg-transparent"
+              )}
+            />
           }
           Settings
         </Button>
