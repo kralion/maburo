@@ -10,7 +10,7 @@ export function CustomNavLink({ children, to, ...props }: LinkProps) {
       <Button
         variant="ghost"
         className={clsx(
-          "hover:bg-blue-500 flex my-2 justify-start gap-3 active:opacity-70 group w-full text-slate-500 hover:text-white",
+          "hover:bg-blue-500  flex rounded-xl justify-start gap-3 active:opacity-70 group w-full text-slate-500 hover:text-white",
           useMatch(resolved.pathname)
             ? " text-white group-default:fill-green-500 group-default:text-green-500 bg-blue-500"
             : "bg-transparent"

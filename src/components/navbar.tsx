@@ -16,7 +16,7 @@ const navLinks = [
   {
     title: "Home",
     icon: LucideHome,
-    href: "/dashboard",
+    href: "/",
   },
   {
     title: "Ticket",
@@ -44,16 +44,19 @@ export function NavBar() {
   const resolved = useResolvedPath("/settings");
   return (
     <div className="flex flex-col gap-[450px] w-44 justify-between ">
-      <div>
-        <p className="font-bold lowercase my-10 px-3 text-2xl">Maburo.</p>
+      <div className="flex flex-col gap-8">
+        <Link className="font-bold lowercase px-3 text-2xl" to="/">
+          <span>Maburo.</span>
+        </Link>
+        <div className="flex flex-col gap-3">
+          {navLinks.map((link) => (
+            <CustomNavLink to={link.href}>
+              <link.icon className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
 
-        {navLinks.map((link) => (
-          <CustomNavLink to={link.href}>
-            <link.icon className="h-5 w-5 text-blue-500 group-hover:fill-green-400 group-hover:text-green-400 " />
-
-            {link.title}
-          </CustomNavLink>
-        ))}
+              {link.title}
+            </CustomNavLink>
+          ))}
+        </div>
       </div>
 
       <Link to="/settings">
